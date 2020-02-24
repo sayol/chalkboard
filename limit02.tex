@@ -1,0 +1,48 @@
+\documentclass[aspectratio=169,t,12pt]{beamer}
+\usetheme{ChalkBoard}
+\DeclareMathSizes{12}{14}{10}{8}
+\begin{document}
+\begin{frame}{លីមីតត្រៀមបាក់ឌុប}
+\setcounter{theorem}{1}
+\begin{example}
+	គណនាលីមីតខាងក្រោម៖
+	\begin{enumerate}[a]
+		\item $ \lim\limits_{x\to 1}\dfrac{x^3+3x^2+2x-6}{x^2-3x+2} $
+		\item $ \lim\limits_{x\to 0}\dfrac{3x}{\sin 2x} $
+		\item $ \lim\limits_{x\to \frac{\pi}{6}}\dfrac{\sqrt{3}\sin x-\cos x}{6x-\pi} $
+	\end{enumerate}
+\end{example}
+\end{frame}
+%
+\begin{frame}[allowframebreaks]{ដំណោះស្រាយ}
+\begin{enumerate}[a]
+	\item $ \lim\limits_{x\to 1}\dfrac{x^3+3x^2+2x-6}{x^2-3x+2} $ រាងមិនកំណត់ $ \frac{0}{0} $
+	\begin{align*}
+	\lim\limits_{x\to 1}\dfrac{x^3+3x^2+2x-6}{x^2-3x+2}
+	&=\lim\limits_{x\to 1}\dfrac{x^3-x^2+4x^2-4x+6x-6}{x^2-x-2x+2}\\
+	&=\lim\limits_{x\to 1}\dfrac{x^2(x-1)+4x(x-1)+6(x-1)}{x(x-1)-2(x-1)}\\
+	&=\lim\limits_{x\to 1}\dfrac{\cancel{(x-1)}(x^2+4x+6)}{\cancel{(x-1)}(x-2)}\\
+	&=\lim\limits_{x\to 1}\dfrac{x^2+4x+6}{x-2}\\
+	&=\dfrac{(1)^2+4(1)+6}{(1)-2}
+	=\dfrac{1+4+6}{-1}=-11
+	\end{align*}
+	\item $ \lim\limits_{x\to 0}\dfrac{3x}{\sin 2x} $ រាងមិនកំណត់ $ \frac{0}{0} $
+	\begin{align*}
+	\lim\limits_{x\to 0}\dfrac{3x}{\sin 2x}
+	&=\lim\limits_{x\to 0}\left(\dfrac{2x}{\sin 2x}\times\dfrac{3}{2}\right)\\
+	&=1\times \dfrac{3}{2}=\dfrac{3}{2}\\
+	&\textnormal{ ព្រោះ }\lim\limits_{u\to 0}\frac{u}{\sin u}=\lim\limits_{u\to 0}\frac{1}{\frac{\sin u}{u}}=\frac{1}{1}=1
+	\end{align*}
+	\item $ \lim\limits_{x\to \frac{\pi}{6}}\dfrac{\sqrt{3}\sin x-\cos x}{6x-\pi} $ រាងមិនកំណត់ $ \frac{0}{0} $
+	\begin{align*}
+	\lim\limits_{x\to \frac{\pi}{6}}\dfrac{\sqrt{3}\sin x-\cos x}{6x-\pi}
+	&=\lim\limits_{x\to \frac{\pi}{6}}\dfrac{2\left (\frac{\sqrt{3}}{2}\sin x-\frac{1}{2}\cos x\right )}{6\left (x-\frac{\pi}{6}\right )}\\
+	&=\lim\limits_{x\to \frac{\pi}{6}}\dfrac{2\left (\sin x\cos\frac{\pi}{6}-\cos x\sin\frac{\pi}{6}\right )}{6\left (x-\frac{\pi}{6}\right )}\\
+	&=\lim\limits_{x\to \frac{\pi}{6}}\dfrac{2\sin\left (x-\frac{\pi}{6}\right )}{6\left (x-\frac{\pi}{6}\right )}\\
+	&=\lim\limits_{x\to\frac{\pi}{6}}\frac{1}{3}\times\frac{\sin\left(x-\frac{\pi}{6}\right)}{x-\frac{\pi}{6}}\\
+	&=\frac{1}{3}\times 1=\frac{1}{3}\\
+	&\textnormal{ ព្រោះ }\lim\limits_{u\to 0}\frac{\sin u}{u}=1\textnormal{ ដែល }u=x-\frac{\pi}{6}
+	\end{align*}
+\end{enumerate}
+\end{frame}
+\end{document}

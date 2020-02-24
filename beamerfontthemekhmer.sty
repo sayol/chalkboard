@@ -1,0 +1,77 @@
+\mode<all>
+\RequirePackage[no-math]{fontspec}
+\setmainfont[%
+Script=Khmer,%
+Ligatures=TeX,%
+BoldFont=*,%
+ItalicFont=*,%
+BoldItalicFont=*,%
+AutoFakeBold=1.5,%
+AutoFakeSlant=0.25]{Khmer OS Freehand}
+\setsansfont[%
+Script=Khmer,%
+Ligatures=TeX,%
+BoldFont=*,%
+ItalicFont=*,%
+BoldItalicFont=*,%
+AutoFakeBold=1.5,%
+AutoFakeSlant=0.25]{Khmer OS Freehand}
+\setmonofont[%
+Script=Khmer,%
+Ligatures=TeX,%
+BoldFont=*,%
+ItalicFont=*,%
+BoldItalicFont=*,%
+AutoFakeBold=1.5,%
+AutoFakeSlant=0.25]{Khmer OS Freehand}
+\linespread{1.5}
+% khmer number
+\def\khmer#1{\expandafter\@khmer\csname c@#1\endcsname}
+\def\@khmer#1{\expandafter\@@khmer\number#1\@nil}
+\def\@@khmer#1{%
+	\ifx#1\@nil% terminate when encounter @nil
+	\else%
+	\ifcase#1 ០\or ១\or ២\or ៣\or ៤\or ៥\or ៦\or ៧\or ៨\or ៩\fi%
+	\expandafter\@@khmer% recursively map the following characters
+	\fi}
+\def\khmernumeral#1{\@@khmer#1\@nil}
+% khmer alphabet
+\def\alpkh#1{\expandafter\@alpkh\csname c@#1\endcsname}
+\def\@alpkh#1{%
+	\ifcase#1% zero -> none
+	\or ក\or ខ\or គ\or ឃ\or ង%
+	\or ច\or ឆ\or ជ\or ឈ\or ញ%
+	\or ដ\or ឋ\or ឌ\or ឍ\or ណ%
+	\or ត\or ថ\or ទ\or ធ\or ន%
+	\or ប\or ផ\or ព\or ភ\or ម%
+	\or យ\or រ\or ល\or វ\or ស%
+	\or ហ\or ឡ\or អ%
+	\else%
+	\@ctrerr% otherwise, counter error!
+	\fi}
+\let\@arabic\@khmer
+\let\@alph\@alpkh
+%
+\def\factname{ស្វ័យសត្យ}%
+\def\lemmaname{បទគន្លិះ}%
+\def\theoremname{ទ្រឹស្ដីបទ}%
+\def\corollaryname{អនុសាធ្យ}%
+\def\problemname{ចំណោទ}%
+\def\solutionname{ដំណោះស្រាយ}%
+\def\definitionname{និយមន័យ}%
+\def\examplename{ឧទាហរណ៍}%
+%
+\mode<presentation>
+\DeclareMathSizes{12}{14}{10}{8}
+\uselanguage{khmer}%
+\languagepath{khmer}%
+\deftranslation[to=khmer]{Fact}{\factname}%
+\deftranslation[to=khmer]{Lemma}{\lemmaname}%
+\deftranslation[to=khmer]{Theorem}{\theoremname}%
+\deftranslation[to=khmer]{Corollary}{\corollaryname}%
+\deftranslation[to=khmer]{Problem}{\problemname}%
+\deftranslation[to=khmer]{Solution}{\solutionname}%
+\deftranslation[to=khmer]{Definition}{\definitionname}%
+\deftranslation[to=khmer]{Definitions}{\definitionname}%
+\deftranslation[to=khmer]{Example}{\examplename}%
+\deftranslation[to=khmer]{Examples}{\examplename}%

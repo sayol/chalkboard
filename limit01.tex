@@ -1,0 +1,43 @@
+\documentclass[aspectratio=169,t,12pt,green]{beamer}
+\usetheme{ChalkBoard}
+\begin{document}
+\begin{frame}{លីមីតត្រៀមបាក់ឌុប}
+\begin{example}
+	គណនាលីមីតខាងក្រោម៖
+	\begin{enumerate}[a]
+		\item $ \lim\limits_{x\to 1}\dfrac{x^3-2x^2+3x-2}{1-x^2} $
+		\item $ \lim\limits_{x\to 0}\dfrac{\sin 3x}{4x} $
+		\item $ \lim\limits_{x\to \frac{\pi}{4}}\dfrac{\sin x-\cos x}{\pi-4x} $
+	\end{enumerate}
+\end{example}
+\end{frame}
+
+\begin{frame}[allowframebreaks]{ដំណោះស្រាយ}
+\begin{enumerate}[a]
+	\item $ \lim\limits_{x\to 1}\dfrac{x^3-2x^2+3x-2}{1-x^2} $ រាងមិនកំណត់ $ \dfrac{0}{0} $
+	\begin{align*}
+	\lim\limits_{x\to 1}\dfrac{x^3-2x^2+3x-2}{1-x^2}
+	&=\lim\limits_{x\to 1}\dfrac{x^3-x^2-x^2+x+2x-2}{-(x^2-1)}\\
+	&=\lim\limits_{x\to 1}\dfrac{x^2(x-1)-x(x-1)+2(x-1)}{-(x^2-1^2)}\\
+	&=\lim\limits_{x\to 1}\dfrac{\cancel{(x-1)}(x^2-x+2)}{-\cancel{(x-1)}(x+1)}\\
+	&=\lim\limits_{x\to 1}\dfrac{x^2-x+2}{-(x+1)}
+	=\dfrac{1^2-1+2}{-(1+1)}=-1
+	\end{align*}
+	\item $ \lim\limits_{x\to 0}\dfrac{\sin 3x}{4x} $​ រាងមិនកំណត់ $ \dfrac{0}{0} $
+	\begin{align*}
+		\lim\limits_{x\to 0}\dfrac{\sin 3x}{4x}
+		&=\lim\limits_{x\to 0}\dfrac{\sin 3x}{3x}\times\dfrac{3}{4}&&\textnormal{ គុណភាគយក និងភាកបែងដោយ } 3\\
+		&=1\times\dfrac{3}{4}=\dfrac{3}{4}&&\textnormal{ ព្រោះ } \lim\limits_{u\to 0}\dfrac{\sin u}{u}=1\textnormal{ ដែល }u=3x
+	\end{align*}
+	\item $ \lim\limits_{x\to \frac{\pi}{4}}\dfrac{\sin x-\cos x}{\pi-4x} $ រាងមិនកំណត់ $ \dfrac{0}{0} $
+	\begin{align*}
+		\lim\limits_{x\to \frac{\pi}{4}}\dfrac{\sin x-\cos x}{\pi-4x}
+		&=\lim\limits_{x\to \frac{\pi}{4}}\dfrac{\sqrt{2}\left (\dfrac{\sqrt{2}}{2}\sin x-\dfrac{\sqrt{2}}{2}\cos x\right )}{4\left(\dfrac{\pi}{4}-x\right)}\\
+		&=\lim\limits_{x\to \frac{\pi}{4}}\dfrac{\sqrt{2}}{4}\left(\dfrac{\sin x\cos\dfrac{\pi}{4}-\cos x\sin\dfrac{\pi}{4}}{\dfrac{\pi}{4}-x}\right)\\
+		&=\lim\limits_{x\to \frac{\pi}{4}}\dfrac{\sqrt{2}}{4}\left[ \dfrac{\sin \left(x-\dfrac{\pi}{4}\right)}{-\left(x-\dfrac{\pi}{4}\right)} \right]\\
+%		&\textnormal{ ព្រោះ }\sin\alpha\cos\beta-\cos\alpha\sin\beta=\sin(\alpha-\beta)\\
+		&=\dfrac{\sqrt{2}}{4}(-1)=-\dfrac{\sqrt{2}}{4},\textnormal{ ព្រោះ }\lim\limits_{u\to 0}\dfrac{\sin u}{u}=1\textnormal{ ដែល }u=x-\dfrac{\pi}{4}
+	\end{align*}
+\end{enumerate}
+\end{frame}
+\end{document}

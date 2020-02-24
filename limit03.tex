@@ -1,0 +1,47 @@
+\documentclass[aspectratio=169,t,12pt,green]{beamer}
+\usetheme{ChalkBoard}
+\DeclareMathSizes{12}{14}{10}{8}
+\begin{document}
+\begin{frame}{លីមីតត្រៀមបាក់ឌុប}
+\setcounter{theorem}{1}
+\begin{example}
+	គណនាលីមីតខាងក្រោម៖
+	\begin{enumerate}[a]
+		\item $ \lim\limits_{x\to 1}\dfrac{2x^3+x^2-4x+1}{x^2+x-2} $
+		\item $ \lim\limits_{x\to 0}\dfrac{-2x}{\sin 4x} $
+		\item $ \lim\limits_{x\to \frac{\pi}{3}}\dfrac{\sqrt{3}\cos x-\sin x}{2\pi-6x} $
+	\end{enumerate}
+\end{example}
+\end{frame}
+%
+\begin{frame}[allowframebreaks]{ដំណោះស្រាយ}
+\begin{enumerate}[a]
+	\item $ \lim\limits_{x\to 1}\dfrac{2x^3+x^2-4x+1}{x^2+x-2} $ រាងមិនកំណត់ $ \frac{0}{0} $
+	\begin{align*}
+	\lim\limits_{x\to 1}\dfrac{2x^3+x^2-4x+1}{x^2+x-2}
+	&=\lim\limits_{x\to 1}\dfrac{2x^3-2x^2+3x^2-3x-x+1}{x^2-x+2x-2}\\
+	&=\lim\limits_{x\to 1}\frac{2x^2(x-1)+3x(x-1)-(x-1)}{x(x-1)+2(x-1)}\\
+	&=\lim\limits_{x\to 1}\frac{\cancel{(x-1)}(2x^2+3x-1)}{\cancel{(x-1)}(x+2)}\\
+	&=\lim\limits_{x\to 1}\frac{2x^2+3x-1}{x+2}\\
+	&=\frac{2(1)^2+3(1)-1}{(1)+2}
+	=\frac{2+3-1}{3}=\frac{4}{3}
+	\end{align*}
+	\item $ \lim\limits_{x\to 0}\dfrac{-2x}{\sin 4x} $ រាងមិនកំណត់ $ \frac{0}{0} $
+	\begin{align*}
+	\lim\limits_{x\to 0}\dfrac{-2x}{\sin 4x}
+	&=\lim\limits_{x\to 0}\left (\dfrac{4x}{\sin 4x}\times\frac{-2}{4}\right )\\
+	&=1\times\left(-\frac{1}{2}\right)=-\frac{1}{2}\\
+	&\textnormal{ ព្រោះ }\lim\limits_{u\to 0}\frac{u}{\sin u}=\lim\limits_{u\to 0}\frac{1}{\frac{\sin u}{u}}=\frac{1}{1}=1
+	\end{align*}
+	\item $ \lim\limits_{x\to \frac{\pi}{3}}\dfrac{\sqrt{3}\cos x-\sin x}{2\pi-6x} $ រាងមិនកំណត់ $ \frac{0}{0} $
+	\begin{align*}
+	\lim\limits_{x\to \frac{\pi}{3}}\dfrac{\sqrt{3}\cos x-\sin x}{2\pi-6x}
+	&=\lim\limits_{x\to \frac{\pi}{3}}\dfrac{2\left (\frac{\sqrt{3}}{2}\cos x-\frac{1}{2}\sin x\right )}{6\left (\frac{\pi}{3}-x\right )}\\
+	&=\lim\limits_{x\to \frac{\pi}{3}}\left (\frac{2}{6}\times\frac{\sin\frac{\pi}{3}\cos x-\cos\frac{\pi}{3}\sin x}{\frac{\pi}{3}-x}\right )\\
+	&=\lim\limits_{x\to \frac{\pi}{3}}\left(\frac{1}{3}\times\frac{\sin\left(\frac{\pi}{3}-x\right)}{\frac{\pi}{3}-x}\right)\\
+	&=\frac{1}{3}\times 1=\frac{1}{3}\\
+	&\textnormal{ ព្រោះ }\lim\limits_{u\to 0}\frac{\sin u}{u}=1\textnormal{ ដែល }u=\frac{\pi}{3}-x
+	\end{align*}
+\end{enumerate}
+\end{frame}
+\end{document}

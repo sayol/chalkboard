@@ -1,0 +1,140 @@
+\ProvidesPackage{beamerthemeChalkBoard}
+\mode<presentation>
+\hypersetup{pdfpagemode=FullScreen}
+\newif\ifbeamer@secheader
+\newif\ifbeamer@greenboard
+\beamer@secheaderfalse
+\beamer@greenboardfalse
+\DeclareOptionBeamer{green}{\beamer@greenboardtrue}
+\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ExecuteOptionsBeamer{secheader}
+\ProcessOptionsBeamer
+%
+\ifbeamer@greenboard
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{greenboard.jpg}}
+\else
+	\usebackgroundtemplate{\includegraphics[width=\paperwidth,height=\paperheight]{ChalkBoard.jpg}}
+\fi
+\setbeamertemplate{navigation symbols}{}
+%
+\setbeamercolor{palette primary}{fg=white}
+\setbeamercolor{palette secondary}{fg=white}
+\setbeamercolor{palette tertiary}{fg=white}
+\setbeamercolor{palette quaternary}{fg=white}
+\setbeamercolor{structure}{fg=white} % itemize, enumerate, etc
+\setbeamercolor{section in toc}{fg=white} % TOC sections
+% Override palette coloring with secondary
+\setbeamercolor{subsection in head/foot}{fg=white}
+%
+\setbeamercolor{frametitle}{fg=yellow!45!white}
+\setbeamercolor{normal text}{fg=white}
+\setbeamercolor{alerted text}{fg=yellow}
+\setbeamercolor{example text}{fg=cyan!45!white}
+\setbeamercolor{block title}{fg=magenta!45!white}
+%
+\setbeamersize{text margin left=4ex,text margin right=4ex}
+%
+\setbeamertemplate{frametitle}
+{
+	\vskip0.5ex
+	\centerline{\insertframetitle}
+}
+%%
+%\usecolortheme{whale}
+%\usecolortheme{orchid}
+\usecolortheme[named=white]{structure}
+%\useinnertheme{rounded}
+%\useoutertheme{infolines}
+%\setbeamersize{text margin left=3ex}
+%\setbeamersize{text margin right=3ex}
+%\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{theorems}[numbered]
+\usefonttheme{structurebold}
+\setbeamercolor{alerted text}{fg=yellow!45!white}
+%\setbeamercovered{transparent}
+%\setbeamersize{text margin left=1em}
+%\setbeamersize{text margin right=1em}
+\addtolength\leftmargini{-1ex}
+
+\ifbeamer@secheader\relax\else\setbeamertemplate{headline}[default]\fi
+
+\mode<all>
+\RequirePackage[no-math]{fontspec}
+\setmainfont[%
+Script=Khmer,%
+Ligatures=TeX,%
+BoldFont=*,%
+ItalicFont=*,%
+BoldItalicFont=*,%
+AutoFakeBold=1.5,%
+AutoFakeSlant=0.25]{Khmer OS Freehand}
+\setsansfont[%
+Script=Khmer,%
+Ligatures=TeX,%
+BoldFont=*,%
+ItalicFont=*,%
+BoldItalicFont=*,%
+AutoFakeBold=1.5,%
+AutoFakeSlant=0.25]{Khmer OS Freehand}
+\setmonofont[%
+Script=Khmer,%
+Ligatures=TeX,%
+BoldFont=*,%
+ItalicFont=*,%
+BoldItalicFont=*,%
+AutoFakeBold=1.5,%
+AutoFakeSlant=0.25]{Khmer OS Freehand}
+% khmer number
+\def\khmer#1{\expandafter\@khmer\csname c@#1\endcsname}
+\def\@khmer#1{\expandafter\@@khmer\number#1\@nil}
+\def\@@khmer#1{%
+	\ifx#1\@nil% terminate when encounter @nil
+	\else%
+	\ifcase#1 ០\or ១\or ២\or ៣\or ៤\or ៥\or ៦\or ៧\or ៨\or ៩\fi%
+	\expandafter\@@khmer% recursively map the following characters
+	\fi}
+\def\khmernumeral#1{\@@khmer#1\@nil}
+% khmer alphabet
+\def\alpkh#1{\expandafter\@alpkh\csname c@#1\endcsname}
+\def\@alpkh#1{%
+	\ifcase#1% zero -> none
+	\or ក\or ខ\or គ\or ឃ\or ង%
+	\or ច\or ឆ\or ជ\or ឈ\or ញ%
+	\or ដ\or ឋ\or ឌ\or ឍ\or ណ%
+	\or ត\or ថ\or ទ\or ធ\or ន%
+	\or ប\or ផ\or ព\or ភ\or ម%
+	\or យ\or រ\or ល\or វ\or ស%
+	\or ហ\or ឡ\or អ%
+	\else%
+	\@ctrerr% otherwise, counter error!
+	\fi}
+\let\@arabic\@khmer
+\let\@alph\@alpkh
+\usefonttheme{professionalfonts}%
+\def\factname{ស្វ័យសត្យ}%
+\def\lemmaname{បទគន្លិះ}%
+\def\theoremname{ទ្រឹស្ដីបទ}%
+\def\corollaryname{អនុសាធ្យ}%
+\def\problemname{ចំណោទ}%
+\def\solutionname{ដំណោះស្រាយ}%
+\def\definitionname{និយមន័យ}%
+\def\examplename{ឧទាហរណ៍}%
+\uselanguage{khmer}%
+\languagepath{khmer}%
+\deftranslation[to=khmer]{Fact}{\factname}%
+\deftranslation[to=khmer]{Lemma}{\lemmaname}%
+\deftranslation[to=khmer]{Theorem}{\theoremname}%
+\deftranslation[to=khmer]{Corollary}{\corollaryname}%
+\deftranslation[to=khmer]{Problem}{\problemname}%
+\deftranslation[to=khmer]{Solution}{\solutionname}%
+\deftranslation[to=khmer]{Definition}{\definitionname}%
+\deftranslation[to=khmer]{Definitions}{\definitionname}%
+\deftranslation[to=khmer]{Example}{\examplename}%
+\deftranslation[to=khmer]{Examples}{\examplename}%
+\RequirePackage{newpxmath}
+\everymath{\displaystyle}
+\allowdisplaybreaks
+\linespread{1.5}
+\RequirePackage{cancel}
+\def\CancelColor{\color{cyan!45!white}}
+\setbeamertemplate{frametitle continuation}{}
